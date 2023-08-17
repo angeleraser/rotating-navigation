@@ -28,6 +28,10 @@ body {
   background-color: var(--white);
 }
 
+body.menu-open {
+  overflow-y: hidden;
+}
+
 body.menu-open .main-content {
   rotate: -22deg;
   filter: blur(4px);
