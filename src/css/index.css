@@ -1,0 +1,159 @@
+@import url("./nomalizer.min.css");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+:root {
+  --black-1: #333;
+  --black-2: #222;
+  --gray: #555;
+  --red: #ff7979;
+  --white: #fff;
+  --animation-duration: 0.6s;
+}
+
+body {
+  background-color: var(--black-1);
+  overflow-x: hidden;
+  font-family: "Lato", sans-serif;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  transition-duration: var(--animation-duration);
+  transform-origin: left top;
+  padding: 22px;
+  min-width: 360px;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+}
+
+body.menu-open .main-content {
+  rotate: -22deg;
+  filter: blur(4px);
+}
+
+.nav-circle {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: var(--red);
+  border-radius: 09101998px;
+  padding: 20px;
+  position: fixed;
+  justify-content: space-between;
+  translate: -50% -100px;
+  transition: var(--animation-duration) all;
+  z-index: 10;
+}
+
+body.menu-open .nav-circle {
+  rotate: -90deg;
+}
+
+.nav-btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: var(--white);
+  font-size: 26px;
+  position: absolute;
+  line-height: 1;
+}
+
+.nav-btn-open {
+  right: 40px;
+  bottom: 40px;
+}
+
+.nav-btn-close {
+  left: 40px;
+  bottom: 40px;
+}
+
+.nav-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 30px;
+  margin-bottom: 80px;
+  left: -50%;
+  bottom: 0;
+  transition: var(--animation-duration) all;
+}
+
+body.menu-open .nav-menu {
+  left: 0;
+}
+
+body.menu-open .nav-menu-link {
+  animation: menu-link-open var(--animation-duration) linear;
+}
+
+.nav-menu-link,
+.nav-menu-link a {
+  color: var(--white);
+  font-size: 24px;
+}
+
+.nav-menu-link a {
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.nav-menu-link:nth-child(2) {
+  margin-left: 30px;
+}
+
+.nav-menu-link:nth-child(3) {
+  margin-left: 60px;
+}
+
+@keyframes menu-link-open {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 80px;
+  max-width: 1140px;
+}
+
+.article-title,
+.article-subtitle {
+  font-weight: 600;
+  font-size: 40px;
+  margin: 0 0 4px;
+  color: var(--black-2);
+}
+
+.article-title {
+  font-size: 40px;
+}
+
+.article-subtitle {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.article-author {
+  color: var(--gray);
+  font-style: italic;
+}
+
+.article-paragraph {
+  margin: 24px 0;
+  line-height: 1.4;
+  color: var(--black-1);
+}
